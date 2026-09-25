@@ -214,7 +214,7 @@ hosts.
 
 | Input | Action |
 |---|---|
-| `y` (window-management mode) | Toggle sync for **all** open windows |
+| `y` (window-management mode) | Toggle sync for **all** open panes |
 | `Ctrl+Shift+Click` on a window | Add or remove that window from the multifocus set |
 | Palette: "Toggle Multifocus" | Add or remove the currently focused window |
 | Palette: "Clear Multifocus" | Empty the set |
@@ -224,7 +224,7 @@ ones will receive your keystrokes. A notification reports the size of the set as
 you change it.
 
 While sync-all is enabled, every keystroke that reaches the focused window's
-shell in **terminal mode** is sent to every other open window. When sync-all is
+shell in **terminal mode** is sent to every other open pane. When sync-all is
 off, a non-empty multifocus set does the same for only the windows in the set.
 Keys handled by TUIOS itself (the leader key and its chords, overlays, workspace
 switches, copy mode) are not broadcast, because they never reach the forwarding
