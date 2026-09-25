@@ -235,6 +235,7 @@ func (d *ActionDispatcher) registerHandlers() {
 	d.Register("toggle_logs", handleToggleLogs)
 	d.Register("toggle_cache_stats", handleToggleCacheStats)
 	d.Register("toggle_spotlight", handleToggleSpotlight)
+	d.Register("toggle_sync_panes", handleToggleSyncPanes)
 
 	// Tape manager actions
 	d.Register("toggle_tape_manager", handleToggleTapeManager)
@@ -828,6 +829,12 @@ func handleToggleSpotlight(_ tea.KeyPressMsg, o *app.OS) (*app.OS, tea.Cmd) {
 	save := o.ToggleSpotlight()
 	toggleNotify(o, "Spotlight", o.SpotlightOn())
 	return o, save
+}
+
+func handleToggleSyncPanes(_ tea.KeyPressMsg, o *app.OS) (*app.OS, tea.Cmd) {
+	o.SyncPanes = !o.SyncPanes
+	toggleNotify(o, "Sync panes", o.SyncPanes)
+	return o, nil
 }
 
 func handleToggleLogs(_ tea.KeyPressMsg, o *app.OS) (*app.OS, tea.Cmd) {

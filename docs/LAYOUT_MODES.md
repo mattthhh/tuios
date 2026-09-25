@@ -214,6 +214,7 @@ hosts.
 
 | Input | Action |
 |---|---|
+| `y` (window-management mode) | Toggle sync for **all** open windows |
 | `Ctrl+Shift+Click` on a window | Add or remove that window from the multifocus set |
 | Palette: "Toggle Multifocus" | Add or remove the currently focused window |
 | Palette: "Clear Multifocus" | Empty the set |
@@ -222,8 +223,9 @@ Windows in the set are drawn with a distinct border color so it is obvious which
 ones will receive your keystrokes. A notification reports the size of the set as
 you change it.
 
-While the set is non-empty and you are in **terminal mode**, every keystroke that
-would go to the focused window's shell is also sent to each window in the set.
+While sync-all is enabled, every keystroke that reaches the focused window's
+shell in **terminal mode** is sent to every other open window. When sync-all is
+off, a non-empty multifocus set does the same for only the windows in the set.
 Keys handled by TUIOS itself (the leader key and its chords, overlays, workspace
 switches, copy mode) are not broadcast, because they never reach the forwarding
 path.
@@ -233,12 +235,12 @@ Limitations:
 - **Terminal mode only.** In window management mode nothing is broadcast.
 - **The set is client-side.** It is not part of session state, so it does not
   survive a detach and it is not shared with other clients attached to the same
-  session. Switching sessions clears it.
+  session. Switching sessions clears both sync-all and the multifocus set.
 - **It follows windows, not positions.** The set is keyed by window ID, so
   swapping panes around keeps the same windows selected. Closing a window
   removes it from the set.
-- **No key.** There is no default keybinding for either palette command; use
-  `Ctrl+Shift+Click` or the palette.
+- **Set commands still have no key.** The per-window multifocus commands still
+  have no default keybinding; use `Ctrl+Shift+Click` or the palette.
 
 ## Related Documentation
 
