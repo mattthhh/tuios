@@ -782,6 +782,9 @@ func DefaultConfig() *UserConfig {
 				// in window mode, and the leader chord that spells the sidebar
 				// (leader, b) is a different scope, so the two do not meet.
 				"toggle_spotlight": {"b"},
+				// y for sYnc. It toggles tmux-style broadcast typing to every
+				// pane while you stay in window mode, where toggles belong.
+				"toggle_sync_panes": {"y"},
 			},
 			// The arrow keys belong to whatever overlay is up, and each overlay
 			// takes them by key before any binding is consulted. The section

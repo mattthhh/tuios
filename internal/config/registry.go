@@ -590,6 +590,7 @@ var ActionDescriptions = map[string]string{
 	"toggle_logs":        "Toggle log viewer",
 	"toggle_cache_stats": "Toggle cache statistics",
 	"toggle_spotlight":   "Toggle spotlight",
+	"toggle_sync_panes":  "Toggle synchronized typing to all panes",
 
 	// Prefix Mode
 	"prefix_new_window":         "Create new window",

@@ -959,6 +959,7 @@ type OS struct {
 	ShowLayoutPicker bool
 	LayoutCycleIndex int             // Current index in saved layouts for cycling
 	MultifocusSet    map[string]bool // Window IDs that receive keystrokes simultaneously
+	SyncPanes        bool            // True when terminal keystrokes are mirrored to every open pane
 	UseBSPLayout     bool            // true = BSP tiling, false = master-stack
 	// announceDepth counts the open settleSizes holds. See announce_batch.go.
 	announceDepth int
@@ -1577,6 +1578,7 @@ func (m *OS) rebuildForSession(state *session.SessionState, savedWidth, savedHei
 	m.NextBSPWindowID = 1
 	m.Animations = nil
 	m.MultifocusSet = nil
+	m.SyncPanes = false
 	// Default to workspace 1, not 0: a brand-new target session has no windows,
 	// so RestoreFromState (which repairs the workspace) never runs, and any
 	// window then created would land on workspace 0, which SwitchToWorkspace
